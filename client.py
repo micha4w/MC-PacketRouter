@@ -43,7 +43,6 @@ def prependSize(data : bytes) -> bytes:
 def send(data : bytes) -> str:
     s = socket.socket(socket.AF_INET)
     s.connect(('localhost',25565))
-    data = b'm4w:' + data
     
     # 1 Byte: length of packet
     # 1 Byte: Packet Type (0x00: Handshake)
@@ -52,7 +51,7 @@ def send(data : bytes) -> str:
     # n Bytes: String <- Used to transmit data
     # 2 Bytes: Port
     # 1 Byte: Next State
-    data = prependSize(b'\x00/' + prependSize(data) + b'c\xdd\x01')
+    data = prependSize(b'\x00/' + prependSize(data) + b'\x00\x00\x00')
     s.send(data)
     response = s.recv(1024)
 
@@ -69,4 +68,4 @@ def send(data : bytes) -> str:
     return ''
 
 print(send(b"Hello World!"))
-print(send(b"Hello World!"))
+#print(send(b"Hello World!"))

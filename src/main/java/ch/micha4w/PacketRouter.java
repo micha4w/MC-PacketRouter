@@ -1,5 +1,6 @@
 package ch.micha4w;
 
+import ch.micha4w.interfaces.IClientConnection;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +10,7 @@ public class PacketRouter implements DedicatedServerModInitializer {
 
 	@Override
 	public void onInitializeServer() {
-		LOGGER.info("Packet forwarder started!");
+		LOGGER.info("Packet router started!");
 	}
 
 	public static void onReceived(IClientConnection client, String msg) {
