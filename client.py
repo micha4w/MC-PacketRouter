@@ -33,17 +33,18 @@ class ByteBuffer:
         return str_data.decode()
     
 
-def prependSize(data : bytes):
+def prependSize(data : bytes) -> bytes:
     size = len(data)
     len_size = math.ceil(math.log(size, 256))
     size_b = (size).to_bytes(len_size, 'big')
     
     return size_b + data
 
-s = socket.socket(socket.AF_INET)
 def send(data : bytes) -> str:
-    s.connect(("localhost",25565))
-    size = len(data)
+    s = socket.socket(socket.AF_INET)
+    s.connect(('localhost',25565))
+    data = b'm4w:' + data
+    
     # 1 Byte: length of packet
     # 1 Byte: Packet Type (0x00: Handshake)
     # 1 Byte: Protocol verion
@@ -64,8 +65,8 @@ def send(data : bytes) -> str:
         msg = data.readString()
         return msg
 
+    s.close()
     return ''
 
 print(send(b"Hello World!"))
-time.sleep(2)
 print(send(b"Hello World!"))
