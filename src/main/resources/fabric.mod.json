@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "m4w_pr",
+  "version": "1.0.1",
+
+  "name": "Packet Router",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "http://micha4w.ch/"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/m4w_pr/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "server": [
+      "ch.micha4w.PacketRouter"
+    ]
+  },
+  "mixins": [
+    "m4w_pr.mixins.json"
+  ],
+
+  "depends": {
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
