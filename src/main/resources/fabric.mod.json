@@ -4,9 +4,9 @@
   "version": "1.0.1",
 
   "name": "Packet Router",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Simple Fabric Mod that Catches Handshake packets and sends back a response",
   "authors": [
-    "Me!"
+    "micha4w"
   ],
   "contact": {
     "homepage": "http://micha4w.ch/"
@@ -26,11 +26,9 @@
   ],
 
   "depends": {
+    "fabricloader": ">=0.13.3",
     "fabric": "*",
     "minecraft": "1.18.x",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
